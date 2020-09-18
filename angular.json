@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lander-angular"
+    }
+  },
+  "defaultProject": "lander-angular",
+  "cli": {
+    "analytics": false
+  }
 }
