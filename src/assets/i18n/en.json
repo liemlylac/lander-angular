@@ -1,4 +1,20 @@
 {
+  "Email": "Email",
+  "Email address": "Email address",
+  "Login": "Login",
+  "Forgot password": "Forgot password",
+  "Forgot password?": "Forgot password?",
   "Resources": "Resources",
+  "Request password": "Request password",
+  "Password": "Password",
+  "Confirm password": "Confirm password",
+  "Remember me": "Remember me",
+  "Terms & Conditions": "Terms & Conditions",
+  "Register": "Register",
+  "Agree to": "Agree to",
+  "Back to Login": "Back to Login",
+  "Already have an account?": "Already have an account?",
+  "Full name": "Full name",
+  "Don't have an account?": "Don't have an account?",
   "Here are some links to help you get started:": "Here are some links to help you get started:"
 }

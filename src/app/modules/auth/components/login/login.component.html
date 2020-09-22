@@ -1,0 +1,47 @@
+<h1 class="title" id="title">{{ 'Login' | transloco }}</h1>
+
+<nb-alert *ngIf="errors?.length && !submitted" outline="danger" role="alert">
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<div [formGroup]="form" aria-labelledby="title">
+  <div class="form-control-group">
+    <label for="email">{{ 'Email' | transloco}}</label>
+    <input [attr.aria-invalid]="email.invalid && email.touched ? true: null" [status]="email.dirty ? (email.invalid ? 'danger' : 'success') : 'basic'" formControlName="email" fullWidth
+           id="email"
+           nbInput
+           placeholder="{{ 'Email address' | transloco }}">
+  </div>
+
+  <div class="form-control-group">
+    <span class="label-with-link">
+      <label class="label" for="input-password">Password:</label>
+      <a class="forgot-password caption-2" routerLink="../request-password">{{'Forgot password?' | transloco}}</a>
+    </span>
+    <input [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : 'basic'"
+           formControlName="password"
+           fullWidth
+           id="input-password"
+           nbInput
+           placeholder="Password"
+           type="password">
+  </div>
+
+  <div class="form-control-group accept-group">
+    <nb-checkbox formControlName="rememberMe" name="rememberMe">
+      {{ 'Remember me' | transloco }}
+    </nb-checkbox>
+  </div>
+
+  <button (click)="login()" [class.btn-pulse]="submitted" [disabled]="submitted||!form.valid" fullWidth
+          nbButton size="large"
+          status="primary">
+    {{ 'Login' | transloco}}
+  </button>
+</div>
+
+<section aria-label="Register" class="another-action">
+  {{'Don\'t have an account?' | transloco}} <a class="text-link" routerLink="../register">{{'Register' | transloco}}</a>
+</section>

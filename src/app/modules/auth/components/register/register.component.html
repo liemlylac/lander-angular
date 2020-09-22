@@ -1,0 +1,60 @@
+<h1 class="title" id="title">{{ 'Register' | transloco }}</h1>
+
+<nb-alert *ngIf="errors?.length && !submitted" outline="danger" role="alert">
+  <ul class="alert-message-list">
+    <li *ngFor="let error of errors" class="alert-message">{{ error }}</li>
+  </ul>
+</nb-alert>
+
+<div [formGroup]="form" aria-labelledby="title">
+  <div class="form-control-group">
+    <label for="firstName">{{ 'First name' | transloco }}</label>
+    <input [status]="firstName.dirty? (firstName.invalid ? 'danger' : 'success') : 'basic'" autofocus fieldSize="large"
+           formControlName="firstName" fullWidth id="firstName" nbInput>
+  </div>
+  <div class="form-control-group">
+    <label for="lastName">{{ 'Last name' | transloco }}</label>
+    <input [status]="lastName.dirty? (lastName.invalid ? 'danger' : 'success') : 'basic'" autofocus fieldSize="large"
+           formControlName="lastName" fullWidth id="lastName" nbInput>
+  </div>
+
+  <div class="form-control-group">
+    <label for="email">{{ 'Email' | transloco }}</label>
+    <input [status]="email.dirty? (email.invalid ? 'danger' : 'success') : 'basic'" autofocus fieldSize="large"
+           formControlName="email" fullWidth id="email" nbInput>
+  </div>
+
+  <div class="form-control-group">
+    <label for="password">{{ 'Password' | transloco }}</label>
+    <input [status]="password.dirty? (password.invalid ? 'danger' : 'success') : 'basic'" autofocus fieldSize="large"
+           formControlName="password" fullWidth id="password" type="password" nbInput>
+  </div>
+
+  <div class="form-control-group">
+    <label for="confirmPassword">{{ 'Confirm password' | transloco }}</label>
+    <input [status]="confirmPassword.dirty? (confirmPassword.invalid ? 'danger' : 'success') : 'basic'" autofocus
+           fieldSize="large" formControlName="confirmPassword" fullWidth id="confirmPassword"
+           type="password"  nbInput>
+    <p *ngIf="password.value != confirmPassword.value && confirmPassword.touched"
+       class="error-message caption status-danger">
+      {{'Password and confirm password does not match!' | transloco}}
+    </p>
+  </div>
+
+  <div class="form-control-group accept-group">
+    <nb-checkbox [required]="true" formControlName="terms">
+      {{'Agree to' | transloco}} <a href="#" target="_blank"><strong>{{'Terms & Conditions' | transloco}}</strong></a>
+    </nb-checkbox>
+  </div>
+
+  <button (click)="register()" [class.btn-pulse]="submitted" [disabled]="submitted || !form.valid || !terms?.value
+            || password.value != confirmPassword.value" fullWidth nbButton
+          size="large" status="primary">
+    {{'Register' | transloco}}
+  </button>
+
+</div>
+
+<section aria-label="Sign in" class="another-action">
+  {{'Already have an account?' | transloco}} <a class="text-link" routerLink="../login">{{'Login' | transloco}}</a>
+</section>
