@@ -1,15 +1,14 @@
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbMenuModule, NbSidebarModule } from '@nebular/theme';
-import { TranslocoModule } from '@ngneat/transloco';
-
-import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from '@core/core.module';
+import { AuthModule } from '@auth/auth.module';
+import { TranslocoRootModule } from '@core/transle/transloco-root.module';
+import { ThemeModule } from '@theme/theme.module';
 import { AppComponent } from './app.component';
-import { AuthModule } from './modules/auth/auth.module';
-import { ThemeModule } from './modules/theme/theme.module';
-import { TranslocoRootModule } from './modules/transloco/transloco-root.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -17,15 +16,16 @@ import { TranslocoRootModule } from './modules/transloco/transloco-root.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule.forRoot(),
+    TranslocoRootModule,
+    AuthModule,
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
-    TranslocoModule,
-    TranslocoRootModule,
-    ThemeModule.forRoot()
+    CoreModule.forRoot(),
+    ThemeModule.forRoot(),
   ],
   declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}

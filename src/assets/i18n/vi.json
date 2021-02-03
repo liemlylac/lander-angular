@@ -1,0 +1,23 @@
+{
+  "First name": "Tên",
+  "Last name": "Họ",
+  "Email": "Email",
+  "Email address": "Địa chỉ email",
+  "Login": "Đăng nhập",
+  "Forgot password": "Quên mật khẩu",
+  "Resources": "Resources",
+  "Request password": "Request password",
+  "Password": "Mật khẩu",
+  "Confirm password": "Xác nhận mật khẩu",
+  "Change password": "Change password",
+  "Please set a new password": "Please set a new password",
+  "Remember me": "Ghi nhớ đăng nhập",
+  "Terms & Conditions": "Điều khoản",
+  "Register": "Đăng ký",
+  "Agree to": "Đồng ý với",
+  "Back to Login": "Trở về trang đăng nhập",
+  "Already have an account?": "Bạn đã có tài khoản?",
+  "Full name": "Tên tài khoản",
+  "Don't have an account?": "Bạn chưa có tài khoản?",
+  "Here are some links to help you get started:": "Here are some links to help you get started:"
+}

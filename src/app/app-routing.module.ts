@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
-import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./@auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '',
     canActivate: [],
-    loadChildren: () =>
-      import('./modules/modules.module').then(m => m.ModulesModule)
+    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   }
 ];
 
-const extraOptions: ExtraOptions = {
-  useHash: false
-};
-
 @NgModule({
-  imports: [RouterModule.forRoot(routes, extraOptions)],
+  imports: [RouterModule.forRoot(routes, { useHash: false })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
